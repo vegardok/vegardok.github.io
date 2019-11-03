@@ -1,19 +1,18 @@
 (function () {
+  const SNAKE_SEGMENT_SIZE = 10;
+
   const HEADER_EL = document.getElementsByTagName('header').item(0);
   const SNAKE_CONTAINER_EL = document.createElement('div');
   SNAKE_CONTAINER_EL.setAttribute('id', 'snakeContainer');
   HEADER_EL.appendChild(SNAKE_CONTAINER_EL);
 
-  const snakeSegmentSize = 10;
-  let snakeSpeed = 1;
-
   let snake = {
     length: 3,
     direction: 'RIGHT',
     body: [
-      {x: 0, y: 0},
-      {x: 0, y: 1},
-      {x: 0, y: 2}
+      { x: 0, y: 0 },
+      { x: 1, y: 0 },
+      { x: 2, y: 0 }
     ].map(({ x, y}, i, all) => {
       const segment = updateSnakeSegment(
         document.createElement('span')
@@ -25,10 +24,10 @@
 
   function updateSnakeSegment(segmentElement, x, y, head = false) {
     segmentElement.style.position = 'absolute';
-    segmentElement.style.top = `${x * snakeSegmentSize}px`;
-    segmentElement.style.left = `${y * snakeSegmentSize}px`;
-    segmentElement.style.height = `${snakeSegmentSize}px`;
-    segmentElement.style.width = `${snakeSegmentSize}px`;
+    segmentElement.style.top = `${y * SNAKE_SEGMENT_SIZE}px`;
+    segmentElement.style.left = `${x * SNAKE_SEGMENT_SIZE}px`;
+    segmentElement.style.height = `${SNAKE_SEGMENT_SIZE}px`;
+    segmentElement.style.width = `${SNAKE_SEGMENT_SIZE}px`;
     segmentElement.style.border = '1px solid #ccc';
     segmentElement.setAttribute('snake-x', x);
     segmentElement.setAttribute('snake-y', y);
@@ -76,9 +75,8 @@
 
   function moveSnakeSegment (x, y) {
     const eatParticle = removeParticles();
-    if (eatParticle) {
-      // TODO
-    }
+    const tailSegment = eatParticle ? snake.body[0].cloneNode() : undefined;
+
     snake.body.forEach((segment, i, all) => {
       const last = i === all.length - 1;
       const currentX = last ?
@@ -90,6 +88,10 @@
 
       updateSnakeSegment(segment, currentX, currentY, i === all.length - 1);
     })
+    if (eatParticle) {
+      snake.body = [tailSegment].concat(snake.body);
+      SNAKE_CONTAINER_EL.append(tailSegment);
+    }
   }
 
   function moveSnake () {
@@ -97,10 +99,10 @@
     const head = body[body.length-1];
 
     const MOVE_MAP = {
-      LEFT: { x: 0, y: -1 },
-      RIGHT: { x: 0, y: 1 },
-      UP: { x: -1, y: 0 },
-      DOWN: { x: 1, y: 0 },
+      LEFT: { x: -1, y: 0 },
+      RIGHT: { x: 1, y: 0 },
+      UP: { x: 0, y: -1 },
+      DOWN: { x: 0, y: 1 },
     }
     if (Object.keys(MOVE_MAP).indexOf(direction) !== -1) {
       const { x, y } = MOVE_MAP[direction]
@@ -111,26 +113,25 @@
   function wallCrash () {
     const { width, height } = HEADER_EL.getBoundingClientRect();
     const head = snake.body[snake.body.length-1];
-    const headX = parseInt(head.getAttribute('snake-x'), 10) * snakeSegmentSize;
-    const headY = parseInt(head.getAttribute('snake-y'), 10) * snakeSegmentSize;
+    const headX = parseInt(head.getAttribute('snake-x'), 10) * SNAKE_SEGMENT_SIZE;
+    const headY = parseInt(head.getAttribute('snake-y'), 10) * SNAKE_SEGMENT_SIZE;
     return headX < 0 || headY < 0 || headY > width || headX > height;
   }
 
   function removeParticles () {
     const head = snake.body[snake.body.length-1];
-    // TODO: head is a square, not a point
-    const headX = head.x * snakeSegmentSize
-    const headY = head.y * snakeSegmentSize
+
+    const headX = parseInt(head.getAttribute('snake-x'), 10) * SNAKE_SEGMENT_SIZE;
+    const headY = parseInt(head.getAttribute('snake-y'), 10) * SNAKE_SEGMENT_SIZE;
     const toBeRemoved = Array.from(document.getElementsByClassName('particle'))
           .filter(p => {
             const rect = p.getBoundingClientRect()
             const { x, y, width, height } = rect;
 
-            return headX > x && headX < (x + width) &&
-              headY > y && headY < (y + height);
+            return headY > y && headY < (y + width) &&
+              headX > x && headX < (x + height)
           })
     toBeRemoved.forEach(p => {
-      console.log(p.getAttribute('id'))
       p.style.animation = 'none';
       p.style.display = 'none';
     });
