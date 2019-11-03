@@ -1,6 +1,7 @@
 (function main() {
   const SNAKE_SEGMENT_SIZE = 20;
   let DRAW_LOOP_REF;
+  let TICK_LENGTH = 250;
 
   const HEADER_EL = document.getElementsByTagName('header').item(0);
   const SNAKE_CONTAINER_EL = document.createElement('div');
@@ -65,6 +66,12 @@
     return toBeRemoved.length !== 0;
   }
 
+  function speedup() {
+    clearInterval(DRAW_LOOP_REF);
+    TICK_LENGTH -= 10;
+    DRAW_LOOP_REF = setInterval(draw, TICK_LENGTH);
+  }
+
   function moveSnakeSegment(x, y) {
     const eatParticle = removeParticles();
     const tailSegment = eatParticle ? snake.body[0].cloneNode() : undefined;
@@ -83,6 +90,7 @@
     if (eatParticle) {
       snake.body = [tailSegment].concat(snake.body);
       SNAKE_CONTAINER_EL.append(tailSegment);
+      speedup();
     }
   }
 
@@ -210,5 +218,5 @@
 
   gameSetup();
   draw();
-  DRAW_LOOP_REF = setInterval(draw, 250);
+  DRAW_LOOP_REF = setInterval(draw, TICK_LENGTH);
 }());
