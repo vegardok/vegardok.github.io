@@ -1,5 +1,5 @@
 (function main() {
-  const SNAKE_SEGMENT_SIZE = 10;
+  const SNAKE_SEGMENT_SIZE = 20;
   let DRAW_LOOP_REF;
 
   const HEADER_EL = document.getElementsByTagName('header').item(0);
