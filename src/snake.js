@@ -1,5 +1,4 @@
-function main () {
-  console.log('Start game');
+(function () {
   const header = document.getElementsByTagName('header')[0];
   const snakeContainer = document.createElement('div');
   snakeContainer.setAttribute('id', 'snakeContainer');
@@ -135,6 +134,4 @@ function main () {
 
   draw();
   setInterval(draw, 250);
-}
-
-main();
+})();
