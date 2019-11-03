@@ -1,8 +1,8 @@
 (function () {
-  const header = document.getElementsByTagName('header')[0];
-  const snakeContainer = document.createElement('div');
-  snakeContainer.setAttribute('id', 'snakeContainer');
-  header.appendChild(snakeContainer);
+  const HEADER_EL = document.getElementsByTagName('header').item(0);
+  const SNAKE_CONTAINER_EL = document.createElement('div');
+  SNAKE_CONTAINER_EL.setAttribute('id', 'snakeContainer');
+  HEADER_EL.appendChild(SNAKE_CONTAINER_EL);
 
   const snakeSegmentSize = 10;
   let snakeSpeed = 1;
@@ -104,8 +104,7 @@
   }
 
   function wallCrash () {
-    const headerEl = document.getElementsByTagName('header').item(0)
-    const { width, height } = headerEl.getBoundingClientRect();
+    const { width, height } = HEADER_EL.getBoundingClientRect();
     const head = snake.body[snake.body.length-1];
     const headX = head.x * snakeSegmentSize
     const headY = head.y * snakeSegmentSize
