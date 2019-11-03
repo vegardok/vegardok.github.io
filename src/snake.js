@@ -19,32 +19,28 @@
       case 'd': {
         if (snake.direction === 'UP' || snake.direction === 'DOWN') {
           snake.direction = 'RIGHT';
-          moveSnake();
-          drawSnake();
+          draw();
         }
         return;
       }
       case 'a': {
         if (snake.direction === 'UP' || snake.direction === 'DOWN') {
           snake.direction = 'LEFT';
-          moveSnake();
-          drawSnake();
+          draw();
         }
         return;
       }
       case 'w': {
         if (snake.direction === 'LEFT' || snake.direction === 'RIGHT') {
           snake.direction = 'UP';
-          moveSnake();
-          drawSnake();
+          draw();
         }
         return;
       }
       case 's': {
         if (snake.direction === 'LEFT' || snake.direction === 'RIGHT') {
           snake.direction = 'DOWN';
-          moveSnake();
-          drawSnake();
+          draw();
         }
         return;
       }
@@ -57,29 +53,30 @@
   function moveSnake () {
     const { direction, body } = snake;
     const head = body[body.length-1];
-
     const eatParticle = removeParticles();
-    if (!eatParticle) {
-      snake.body = snake.body.slice(1);
-    } else {
-      console.log('hit');
+    function move (x, y) {
+      if (!eatParticle) {
+        snake.body = snake.body.slice(1);
+      }
+      snake.body.push({ x, y });
     }
+
 
     switch (direction) {
       case 'LEFT': {
-        snake.body.push({ x: head.x, y: head.y - 1 });
+        move(head.x, head.y - 1);
         return
       }
       case 'RIGHT': {
-        snake.body.push({ x: head.x, y: head.y + 1 });
+        move(head.x, head.y + 1);
         return
       }
       case 'UP': {
-        snake.body.push({ x: head.x - 1, y: head.y });
+        move(head.x - 1, head.y);
         return
       }
       case 'DOWN': {
-        snake.body.push({ x: head.x + 1, y: head.y });
+        move(head.x + 1, head.y);
         return
       }
 
@@ -106,6 +103,15 @@
     })
   }
 
+  function wallCrash () {
+    const headerEl = document.getElementsByTagName('header').item(0)
+    const { width, height } = headerEl.getBoundingClientRect();
+    const head = snake.body[snake.body.length-1];
+    const headX = head.x * snakeSegmentSize
+    const headY = head.y * snakeSegmentSize
+    return headX < 0 || headY < 0 || headY > width || headX > height;
+  }
+
   function removeParticles () {
     const head = snake.body[snake.body.length-1];
     // TODO: head is a square, not a point
@@ -128,10 +134,19 @@
   }
 
   function draw() {
+    const crash = wallCrash();
     drawSnake();
-    moveSnake();
+    if (!crash) {
+      moveSnake();
+    }
+    if (crash) {
+      snake.direction = undefined;
+      clearInterval(drawLoop);
+    }
+  }
+
   }
 
   draw();
-  setInterval(draw, 250);
+  const drawLoop = setInterval(draw, 250);
 })();
