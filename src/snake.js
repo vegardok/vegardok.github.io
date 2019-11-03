@@ -118,17 +118,17 @@
     const headX = head.x * snakeSegmentSize
     const headY = head.y * snakeSegmentSize
     const toBeRemoved = Array.from(document.getElementsByClassName('particle'))
-      .filter(p => {
-        const rect = p.getBoundingClientRect()
-        const { x, y, width, height } = rect;
+          .filter(p => {
+            const rect = p.getBoundingClientRect()
+            const { x, y, width, height } = rect;
 
-        return headX > x && headX < (x + width) &&
-          headY > y && headY < (y + height);
-      })
+            return headX > x && headX < (x + width) &&
+              headY > y && headY < (y + height);
+          })
     toBeRemoved.forEach(p => {
       console.log(p.getAttribute('id'))
-        p.style.animation = 'none';
-        p.style.display = 'none';
+      p.style.animation = 'none';
+      p.style.display = 'none';
     });
     return toBeRemoved.length !== 0;
   }
