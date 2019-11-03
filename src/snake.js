@@ -181,6 +181,16 @@
 
   document.addEventListener('keyup', ({ key }) => {
     key = key.toLowerCase();
+
+    const arrowMapping = {
+      arrowup: 'w',
+      arrowdown: 's',
+      arrowleft: 'a',
+      arrowright: 'd'
+    }
+
+    key = arrowMapping[key] || key;
+
     switch (key) {
       case 'd': {
         if (snake.direction === 'UP' || snake.direction === 'DOWN') {
