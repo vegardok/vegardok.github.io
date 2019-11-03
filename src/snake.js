@@ -57,6 +57,11 @@
       p.style.animation = 'none';
       p.style.display = 'none';
     });
+    if (toBeRemoved.length > 0) {
+      const scoreEl = document.getElementById('score-container');
+      const score = parseInt(scoreEl.innerText, 10);
+      scoreEl.innerText = (score + toBeRemoved.length) + '';
+    }
     return toBeRemoved.length !== 0;
   }
 
@@ -101,7 +106,7 @@
     const head = snake.body[snake.body.length - 1];
     const headX = parseInt(head.getAttribute('snake-x'), 10) * SNAKE_SEGMENT_SIZE;
     const headY = parseInt(head.getAttribute('snake-y'), 10) * SNAKE_SEGMENT_SIZE;
-    return headX < 0 || headY < 0 || headY > width || headX > height;
+    return headX < 0 || headY < 0 || headY > height || headX > width;
   }
 
   function selfCrash() {
@@ -124,6 +129,11 @@
     if (crash) {
       snake.direction = undefined;
       clearInterval(DRAW_LOOP_REF);
+      const scoreContainer = document.getElementById('score-container');
+      const gameOver = document.createElement('p');
+      gameOver.innerText = 'Game over';
+      gameOver.classList.add('game-over');
+      scoreContainer.append(gameOver);
     }
   }
 
@@ -143,6 +153,22 @@
         el.classList.add('fade-out');
       }
     });
+
+    const scoreFont = document.createElement('link');
+    scoreFont.setAttribute('href', 'https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+    scoreFont.setAttribute('rel', 'stylesheet');
+    document
+      .getElementsByTagName('head')
+      .item(0)
+      .append(scoreFont);
+
+    const scoreContainer = document.createElement('div')
+    scoreContainer.setAttribute('id', 'score-container');
+    scoreContainer.classList.add('score-container');
+
+    scoreContainer.innerText = '0';
+
+    HEADER_EL.append(scoreContainer);
   }
 
   document.addEventListener('keyup', ({ key }) => {
