@@ -117,3 +117,21 @@ section h1 {
 .tech {
   flex: 1 1 0;
 }
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fade-out {
+  font-size: 0em;
+  opacity: 0;
+  animation: fade-out 1.5s ;
+}
+.hidden {
+  visibility: hidden;
+  display: none;
+}

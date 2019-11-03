@@ -145,8 +145,26 @@
     }
   }
 
+  /* Prepare page for a game session
+   */
+  function gameSetup() {
+    document
+      .getElementsByTagName('body')
+      .item(0)
+      .style.overflow = 'hidden';
+    [ document.getElementsByClassName('name-container'),
+      document.getElementsByClassName('down'),
+      document.getElementsByTagName('section')
+    ].forEach(nodeList => {
+      for (let el of nodeList) {
+        el.addEventListener('animationend', event =>
+                            event.target.classList.add('hidden'));
+        el.classList.add('fade-out')
+      }
+    })
   }
 
+  gameSetup();
   draw();
   const drawLoop = setInterval(draw, 250);
 })();
