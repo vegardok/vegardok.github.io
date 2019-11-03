@@ -104,8 +104,20 @@
     return headX < 0 || headY < 0 || headY > width || headX > height;
   }
 
+  function selfCrash() {
+    const tail = snake.body.slice(0, snake.body.length - 1);
+    const head = snake.body[snake.body.length - 1];
+    const headX = parseInt(head.getAttribute('snake-x'), 10);
+    const headY = parseInt(head.getAttribute('snake-y'), 10);
+    return !!tail.find((segment) => {
+      const segmentX = parseInt(segment.getAttribute('snake-x'), 10);
+      const segmentY = parseInt(segment.getAttribute('snake-y'), 10);
+      return headX === segmentX && headY === segmentY;
+    });
+  }
+
   function draw() {
-    const crash = wallCrash();
+    const crash = wallCrash() || selfCrash();
     if (!crash) {
       moveSnake();
     }
