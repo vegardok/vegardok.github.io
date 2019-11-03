@@ -9,8 +9,32 @@
 
   let snake = {
     length: 3,
-    body: [{x: 0, y: 0}, {x: 0, y: 1}, {x: 0, y: 2}],
-    direction: 'RIGHT'
+    direction: 'RIGHT',
+    body: [
+      {x: 0, y: 0},
+      {x: 0, y: 1},
+      {x: 0, y: 2}
+    ].map(({ x, y}, i, all) => {
+      const segment = updateSnakeSegment(
+        document.createElement('span')
+        , x, y, i === all.length - 1);
+      SNAKE_CONTAINER_EL.append(segment);
+      return segment;
+    })
+  }
+
+  function updateSnakeSegment(segmentElement, x, y, head = false) {
+    segmentElement.style.position = 'absolute';
+    segmentElement.style.top = `${x * snakeSegmentSize}px`;
+    segmentElement.style.left = `${y * snakeSegmentSize}px`;
+    segmentElement.style.height = `${snakeSegmentSize}px`;
+    segmentElement.style.width = `${snakeSegmentSize}px`;
+    segmentElement.style.border = '1px solid #ccc';
+    segmentElement.setAttribute('snake-x', x);
+    segmentElement.setAttribute('snake-y', y);
+
+    segmentElement.style.background = head ? 'red' : 'white';
+    return segmentElement;
   }
 
   document.addEventListener('keyup', ({ key }) => {
@@ -50,64 +74,45 @@
     }
   })
 
+  function moveSnakeSegment (x, y) {
+    const eatParticle = removeParticles();
+    if (eatParticle) {
+      // TODO
+    }
+    snake.body.forEach((segment, i, all) => {
+      const last = i === all.length - 1;
+      const currentX = last ?
+            parseInt(segment.getAttribute('snake-x'), 10) + x :
+            parseInt(all[i+1].getAttribute('snake-x'), 10);
+      const currentY = last ?
+            parseInt(segment.getAttribute('snake-y'), 10) + y :
+            parseInt(all[i+1].getAttribute('snake-y'), 10);
+
+      updateSnakeSegment(segment, currentX, currentY, i === all.length - 1);
+    })
+  }
+
   function moveSnake () {
     const { direction, body } = snake;
     const head = body[body.length-1];
-    const eatParticle = removeParticles();
-    function move (x, y) {
-      if (!eatParticle) {
-        snake.body = snake.body.slice(1);
-      }
-      snake.body.push({ x, y });
+
+    const MOVE_MAP = {
+      LEFT: { x: 0, y: -1 },
+      RIGHT: { x: 0, y: 1 },
+      UP: { x: -1, y: 0 },
+      DOWN: { x: 1, y: 0 },
     }
-
-
-    switch (direction) {
-      case 'LEFT': {
-        move(head.x, head.y - 1);
-        return
-      }
-      case 'RIGHT': {
-        move(head.x, head.y + 1);
-        return
-      }
-      case 'UP': {
-        move(head.x - 1, head.y);
-        return
-      }
-      case 'DOWN': {
-        move(head.x + 1, head.y);
-        return
-      }
-
-      default: {
-        return
-      }
-    };
-  }
-
-  function drawSnake () {
-    const container = document.getElementById('snakeContainer');
-    Array.from(container.children).forEach(e => container.removeChild(e));
-    snake.body.forEach((segment, i) => {
-      const segmentElement = document.createElement('span');
-      segmentElement.style.position = 'absolute';
-      segmentElement.style.top = `${segment.x * snakeSegmentSize}px`;
-      segmentElement.style.left = `${segment.y * snakeSegmentSize}px`;
-      segmentElement.style.height = `${snakeSegmentSize}px`;
-      segmentElement.style.width = `${snakeSegmentSize}px`;
-      segmentElement.style.border = '1px solid #ccc';
-
-      segmentElement.style.background = i === snake.body.length - 1 ? 'red' : 'white';
-      container.append(segmentElement);
-    })
+    if (Object.keys(MOVE_MAP).indexOf(direction) !== -1) {
+      const { x, y } = MOVE_MAP[direction]
+      moveSnakeSegment(x, y);
+    }
   }
 
   function wallCrash () {
     const { width, height } = HEADER_EL.getBoundingClientRect();
     const head = snake.body[snake.body.length-1];
-    const headX = head.x * snakeSegmentSize
-    const headY = head.y * snakeSegmentSize
+    const headX = parseInt(head.getAttribute('snake-x'), 10) * snakeSegmentSize;
+    const headY = parseInt(head.getAttribute('snake-y'), 10) * snakeSegmentSize;
     return headX < 0 || headY < 0 || headY > width || headX > height;
   }
 
@@ -134,7 +139,6 @@
 
   function draw() {
     const crash = wallCrash();
-    drawSnake();
     if (!crash) {
       moveSnake();
     }
