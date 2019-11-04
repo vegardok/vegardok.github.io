@@ -20,6 +20,11 @@ header {
   transform: translate(-50%,-50%);
 }
 
+.fade-out .site-title {
+  transition: font-size 1s;
+  font-size: 5em;
+}
+
 .site-title, .site-description {
   display: block;
   line-height: 1;
