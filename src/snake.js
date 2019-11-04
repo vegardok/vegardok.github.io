@@ -149,6 +149,10 @@
    */
   function gameSetup() {
     document
+      .getElementsByTagName('html')
+      .item(0)
+      .scrollTop = 0;
+    document
       .getElementsByTagName('body')
       .item(0)
       .style.overflow = 'hidden';
