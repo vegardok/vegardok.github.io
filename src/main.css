@@ -163,3 +163,17 @@ section h1 {
 .game-over {
   font-size: 6vw;
 }
+
+.snake-container > span {
+  transition: all 0.1s linear;
+}
+
+.snake-segment {
+  border: 1px solid #ccc;
+  position: absolute;
+  background-color: white;
+}
+
+.snake-segment:last-child {
+  background-color: red;
+}

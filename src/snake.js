@@ -6,19 +6,17 @@
   const HEADER_EL = document.getElementsByTagName('header').item(0);
   const SNAKE_CONTAINER_EL = document.createElement('div');
   SNAKE_CONTAINER_EL.setAttribute('id', 'snakeContainer');
+  SNAKE_CONTAINER_EL.classList.add('snake-container');
   HEADER_EL.appendChild(SNAKE_CONTAINER_EL);
 
   function updateSnakeSegment(segmentElement, x, y, head = false) {
-    segmentElement.style.position = 'absolute';
     segmentElement.style.top = `${y * SNAKE_SEGMENT_SIZE}px`;
     segmentElement.style.left = `${x * SNAKE_SEGMENT_SIZE}px`;
     segmentElement.style.height = `${SNAKE_SEGMENT_SIZE}px`;
     segmentElement.style.width = `${SNAKE_SEGMENT_SIZE}px`;
-    segmentElement.style.border = '1px solid #ccc';
     segmentElement.setAttribute('snake-x', x);
     segmentElement.setAttribute('snake-y', y);
 
-    segmentElement.style.background = head ? 'red' : 'white';
     return segmentElement;
   }
 
@@ -30,8 +28,10 @@
       { x: 1, y: 0 },
       { x: 2, y: 0 },
     ].map(({ x, y }, i, all) => {
+      const segmentEl = document.createElement('span');
+      segmentEl.classList.add('snake-segment');
       const segment = updateSnakeSegment(
-        document.createElement('span'),
+        segmentEl,
         x, y, i === all.length - 1,
       );
       SNAKE_CONTAINER_EL.append(segment);
@@ -93,7 +93,7 @@
     });
     if (eatParticle) {
       snake.body = [tailSegment].concat(snake.body);
-      SNAKE_CONTAINER_EL.append(tailSegment);
+      SNAKE_CONTAINER_EL.prepend(tailSegment);
       speedup();
     }
   }
