@@ -11,12 +11,12 @@
 
 .particle.eaten {
   transition: all 1s;
-  width: 50px !important;
-  height: 50px !important;
+  width: 70px !important;
+  height: 70px !important;
   opacity: 0;
   visibility: hidden;
   animation: none;
-  background-image: radial-gradient(#99ffff, #ff9999 10%, rgba(153, 255, 255, 0) 56%);
+  background-image: radial-gradient(#feff99, #feff99, 10%, rgba(153, 255, 255, 0) 50%);
 }
 
 @for $i from 1 through 30 {
