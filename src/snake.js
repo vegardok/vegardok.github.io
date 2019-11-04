@@ -45,15 +45,20 @@
     const headX = parseInt(head.getAttribute('snake-x'), 10) * SNAKE_SEGMENT_SIZE;
     const headY = parseInt(head.getAttribute('snake-y'), 10) * SNAKE_SEGMENT_SIZE;
     const toBeRemoved = Array.from(document.getElementsByClassName('particle'))
-      .filter((p) => {
-        const rect = p.getBoundingClientRect();
+      .filter((particleEl) => {
+        const rect = particleEl.getBoundingClientRect();
         const {
           x, y, width, height,
         } = rect;
+        const centerX = x + (height / 2);
+        const centerY = y + (height / 2);
 
-        return headY > y && headY < (y + width)
-              && headX > x && headX < (x + height);
+        const id = particleEl.getAttribute('id');
+
+        return headY < centerY && (headY + SNAKE_SEGMENT_SIZE) > centerY
+          && headX < centerX && (headX + SNAKE_SEGMENT_SIZE) > centerX;
       });
+
     toBeRemoved.forEach((p) => {
       p.style.animation = 'none';
       p.style.display = 'none';
@@ -61,7 +66,7 @@
     if (toBeRemoved.length > 0) {
       const scoreEl = document.getElementById('score-container');
       const score = parseInt(scoreEl.innerText, 10);
-      scoreEl.innerText = (score + toBeRemoved.length) + '';
+      scoreEl.innerText = `${score + toBeRemoved.length}`;
     }
     return toBeRemoved.length !== 0;
   }
