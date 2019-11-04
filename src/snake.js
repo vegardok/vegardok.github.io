@@ -55,7 +55,8 @@
 
         const id = particleEl.getAttribute('id');
 
-        return headY < centerY && (headY + SNAKE_SEGMENT_SIZE) > centerY
+        return !particleEl.classList.contains('eaten')
+          && headY < centerY && (headY + SNAKE_SEGMENT_SIZE) > centerY
           && headX < centerX && (headX + SNAKE_SEGMENT_SIZE) > centerX;
       });
 
