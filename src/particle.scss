@@ -9,6 +9,16 @@
   );
 }
 
+.particle.eaten {
+  transition: all 1s;
+  width: 50px !important;
+  height: 50px !important;
+  opacity: 0;
+  visibility: hidden;
+  animation: none;
+  background-image: radial-gradient(#99ffff, #ff9999 10%, rgba(153, 255, 255, 0) 56%);
+}
+
 @for $i from 1 through 30 {
   @keyframes particle-animation-#{$i} {
     0% {
@@ -18,7 +28,6 @@
       opacity: 1;
     }
     100% {
-      /* opacity: 1; */
       transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
     }
   }

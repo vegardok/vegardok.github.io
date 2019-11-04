@@ -51,7 +51,7 @@
           x, y, width, height,
         } = rect;
         const centerX = x + (height / 2);
-        const centerY = y + (height / 2);
+        const centerY = y + (width / 2);
 
         const id = particleEl.getAttribute('id');
 
@@ -60,8 +60,7 @@
       });
 
     toBeRemoved.forEach((p) => {
-      p.style.animation = 'none';
-      p.style.display = 'none';
+      p.classList.add('eaten');
     });
     if (toBeRemoved.length > 0) {
       const scoreEl = document.getElementById('score-container');
