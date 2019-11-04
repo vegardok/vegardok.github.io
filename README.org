@@ -1,3 +1,31 @@
 * About
 This is a simple static page with my resume. The project was started based on
 [[https://github.com/murraco/jekyll-theme-minimal-resume][murraco/jekyll-theme-minimal-resume]]x although very little code or project setup remains.
+
+* Work remainding
+
+** Snake
+*** DONE Border colision
+    CLOSED: [2019-11-03 sø. 15:20]
+*** DONE Remove non game related stuff on loadb
+    CLOSED: [2019-11-03 sø. 15:20]
+*** DONE Reuse DOM elements when moving snake
+    CLOSED: [2019-11-03 sø. 16:18]
+*** DONE Flacky star eating
+    CLOSED: [2019-11-03 sø. 16:59]
+*** DONE Crash with self
+    CLOSED: [2019-11-03 sø. 19:03]
+*** DONE Score count
+    CLOSED: [2019-11-03 sø. 21:15]
+*** DONE Speed up game
+    CLOSED: [2019-11-03 sø. 21:45]
+*** DONE Add loader
+    CLOSED: [2019-11-03 sø. 23:09]
+*** TODO Flashy removal of page
+*** TODO Flashy eating
+*** TODO Janky eating
+*** TODO Janky navigation
+*** TODO CSS transitions betweek ticks
+** Page
+1. Proper CV
+2. Glowing description
