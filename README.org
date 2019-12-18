@@ -1,6 +1,7 @@
 * About
-This is a simple static page with my resume. The project was started based on
-[[https://github.com/murraco/jekyll-theme-minimal-resume][murraco/jekyll-theme-minimal-resume]]x although very little code or project setup remains.
+This is a simple static page with my resume. The project was started
+based on [[https://github.com/murraco/jekyll-theme-minimal-resume][murraco/jekyll-theme-minimal-resume]]x although very little
+code or project setup remains.
 
 * Work remainding
 
@@ -21,11 +22,25 @@ This is a simple static page with my resume. The project was started based on
     CLOSED: [2019-11-03 sø. 21:45]
 *** DONE Add loader
     CLOSED: [2019-11-03 sø. 23:09]
-*** TODO Flashy removal of page
-*** TODO Flashy eating
-*** TODO Janky eating
-*** TODO Janky navigation
-*** TODO CSS transitions betweek ticks
+*** DONE Janky eating
+    CLOSED: [2019-11-04 ma. 10:53]
+*** DONE Flashy eating
+    CLOSED: [2019-11-04 ma. 21:09]
+*** DONE Flashy removal of page
+    CLOSED: [2019-11-04 ma. 21:36]
+*** DONE Janky navigation
+    CLOSED: [2019-11-04 ma. 21:47]
+*** DONE CSS transitions betweek ticks
+    CLOSED: [2019-11-04 ma. 21:47]
+*** DONE Add end game
+*** DONE Restyle snake
 ** Page
-1. Proper CV
-2. Glowing description
+*** DONE Fix 'breathing effect' caused by down arrow
+    CLOSED: [2019-11-05 ti. 10:39]
+*** DONE Proper CV
+***** DONE List of past projects
+*** DONE Glowing description
+*** DONE Restyle stars?
+*** TODO Fix hosting
+*** TODO Fix ssl on okland.org
+*** TODO Better flex responsive layout
