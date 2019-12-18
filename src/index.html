@@ -13,32 +13,32 @@
 
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="print.css" media="print">
     <link rel="shortcut icon" type="image/png" href="favicon.png" >
   </head>
-
   <body>
-    <header>
+    <header class="print-hidden">
       <div class="name-container">
-      <h1>
-      <span class="site-title">Vegard Økland</span>
-      <span class="site-description">Software Engineer</span>
+        <h1>
+          <span class="site-title">Vegard Økland</span>
+          <span class="site-description">Software Engineer</span>
         </h1>
-      <div class="header-icons">
-      <a class="social-icon" aria-label="Send email" href="mailto:vegard@okland.org">
-      <img alt="email icon" src="email.png"></img>
+        <div class="header-icons">
+          <a class="social-icon" aria-label="Send email" href="mailto:vegard@okland.org">
+            <img alt="email icon" src="email.png"></img>
           </a>
-      <a class="social-icon" aria-label="My LinkedIn" rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/vegard-%C3%B8kland-a514a83b/">
-      <img src="linkedin.png" alt="linkedin icon"></img>
+          <a class="social-icon" aria-label="My LinkedIn" rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/vegard-%C3%B8kland-a514a83b/">
+            <img src="linkedin.png" alt="linkedin icon"></img>
           </a>
-      <a class="social-icon" aria-label="My Github" rel="noreferrer" target="_blank" href="https://github.com/vegardok"
+          <a class="social-icon" aria-label="My Github" rel="noreferrer" target="_blank" href="https://github.com/vegardok"
           >
-      <img src="github-logo.png" alt="github icon"></src>
+            <img src="github-logo.png" alt="github icon"></src>
           </a>
         </div>
       </div>
 
-      <a class="down" href="#about" data-scroll aria-label="To about section">
-      <img src="arrow.png" alt="down icon"></img>
+      <a class="down print-hidden" href="#about" data-scroll aria-label="To about section">
+        <img src="arrow.png" alt="down icon"></img>
       </a>
 
       <div id="particle0" class="particle"></div>
@@ -73,168 +73,352 @@
       <div id="particle29" class="particle"></div>
 
     </header>
-
-    <section id="about">
-
+    <section class="visible-print-only">
+      <h1>Vegard Økland</h1>
+    </section>
+    <section id="about" class="print-hidden">
       <h1>My Expertise</h1>
       <p>
-        I'm a Software Engineer, primarily working on browser based technology. I have worked both
-        on complex single page apps, third party components and behind the scenes tracking of user
-        behaviour. For details, see my full <a href="#cv">CV</a> below.
+        I'm a Software Engineer, primarily working on browser based
+        technology. I have worked both on complex single page apps,
+        third party components and behind the scenes tracking of user
+        behaviour. For details, see my full <a href="#cv">CV</a>
+        below.
       </p>
       <h3>Latest projects</h3>
       <div class="grid-container">
         <div class="tech">
           <h4>Pulse Tracker SDK</h4>
           <p>
-            Vivamus id enim. Praesent fermentum tempor tellus. Cras placerat accumsan nulla. Proin
-            quam nisl, tincidunt et, mattis eget, convallis nec, purus. Nullam eu ante vel est
-            convallis dignissim. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.
-            Mauris ac felis vel velit tristique imperdiet.
+            The Pulse tracker is one of the key components in
+            Schibsteds data strategy. It is used to collect all events
+            from Schibsted web components and sites. It
+            allowes the different sites to describe and collect data
+            about user behaviour in a compatible way accross the
+            different site properties.
           </p>
           <p>
-            Vivamus id enim. Praesent fermentum tempor tellus. Cras placerat accumsan nulla. Proin
-            quam nisl, tincidunt et, mattis eget, convallis nec, purus. Nullam eu ante vel est
-            convallis dignissim. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.
-            Mauris ac felis vel velit tristique imperdiet.
+            Written in vanilla javascript as a collection of multiple
+            NPM modules.
           </p>
         </div>
         <div class="tech">
           <h4>Pulse Monitor</h4>
           <p>
-            Vivamus id enim. Praesent fermentum tempor tellus. Cras placerat accumsan nulla. Proin
-            quam nisl, tincidunt et, mattis eget, convallis nec, purus. Nullam eu ante vel est
-            convallis dignissim. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.
-            Mauris ac felis vel velit tristique imperdiet.
+            Pulse Monitor gives site developers and tracking
+            implementers and insight in exactly what data is being
+            sent to Schibsted. A key part of the data strategy of
+            schibsted is to collect compatible data cross site. To do
+            this a schema was developed and Pulse monitor will tell
+            you to what degree the data you are sending is compatible
+            with the schema.
           </p>
           <p>
-            Vivamus id enim. Praesent fermentum tempor tellus. Cras placerat accumsan nulla. Proin
-            quam nisl, tincidunt et, mattis eget, convallis nec, purus. Nullam eu ante vel est
-            convallis dignissim. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.
-            Mauris ac felis vel velit tristique imperdiet.
-          </p>
-        </div>
-        <div class="tech">
-          <h4>Pulse Unicorn</h4>
-          <p>
-            Vivamus id enim. Praesent fermentum tempor tellus. Cras placerat accumsan nulla. Proin
-            quam nisl, tincidunt et, mattis eget, convallis nec, purus. Nullam eu ante vel est
-            convallis dignissim. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.
-            Mauris ac felis vel velit tristique imperdiet.
-          </p>
-          <p>
-            Vivamus id enim. Praesent fermentum tempor tellus. Cras placerat accumsan nulla. Proin
-            quam nisl, tincidunt et, mattis eget, convallis nec, purus. Nullam eu ante vel est
-            convallis dignissim. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.
-            Mauris ac felis vel velit tristique imperdiet.
+            Written in React.js, Redux and redux-saga.
           </p>
         </div>
       </div>
 
       <div class="grid-container">
         <div class="tech">
-          <h2>Code</h2>
+          <h4>Pulse Unicorn</h4>
           <p>
-            My main language is JavaScript have have been so the last 8 yers. I have extensive
-            experience with React/redux, Vue/vuex in addition to vanilla JS development.
+            Pulse Unicorn is a Chrome Developer Tools Extension that
+            gives you similar information that Pulse monitor will give
+            you, but in realtime inside chrome dev tools.
           </p>
           <p>
-            In addition I dabble in Java, Scala (API endpoints typically) and Python (just for fun).
+            Written in React.js and Redux.
           </p>
         </div>
 
         <div class="tech">
-          <h2>Tools</h2>
-
-          <p>Git, NPM, Webpack, Linux, you name it, I have used a bajillion tools!</p>
-
-        </div>
-        <div class="tech">
-          <h2>Design</h2>
-
+          <h4>Schibsted Messenger</h4>
           <p>
-            Although I do not claim to be a much of a designer, I do work with design related tools
-            on a regular basis.
+            Schibsted Messenger is a core component used across all
+            Classified sites of Schibsted. It is a fully featured
+            instant messaging sollution that can be dropped in to web
+            pages or iOS and Android apps.
+          </p>
+          <p>
+            Written in Vue.js and vuex.
           </p>
         </div>
+        </div>
+
+        <!-- <div class="grid-container">
+             <div class="tech">
+             <h2>Code</h2>
+             <p>
+             My main language is JavaScript have have been so the last
+             8 yers. I have extensive experience with React/redux,
+             Vue/vuex in addition to vanilla JS development.
+             </p>
+             <p>
+             In addition I dabble in Java, Scala (API endpoints
+             typically) and Python (just for fun).
+             </p>
+             </div>
+
+             <div class="tech">
+             <h2>Tools</h2>
+
+             <p>
+             Git, NPM, Webpack, Linux, you name it, I have used a
+             bajillion tools!
+             </p>
+
+             </div>
+             <div class="tech">
+             <h2>Design</h2>
+
+             <p>
+             Although I do not claim to be a much of a designer, I do
+             work with design related tools on a regular basis.
+             </p>
+             </div>
+             </div> -->
+
+    </section>
+
+    <section id="personal" class="visible-print-only personal">
+      <p>
+        vegard@okland.org
+      </p>
+      <p>
+        +4741685732
+      </p>
+    </section>
+
+    <section id="skills" class="visible-print-only cv-company">
+      <h2 >Core skills and experience</h2>
+      <p class="company-title-description">
+        I'm a higly experienced Software Engineer, primarily working
+        on browser based technology. I have worked both on complex
+        single page apps, third party components and behind the scenes
+        tracking of user behaviour.
+      </p>
+      <p class="company-title-description">
+        In Schibsted I wrote the tracking script running on all
+        Schibsted web properties to collect the data powering
+        Schibsted data strategy. I also rewrote the XMPP chat client
+        running on all Schibsted marketplace (now Adevinta) web sites.
+      </p>
+      <p class="company-title-description">
+        In Cxense I was responsible for the development of Cxense
+        Insight (similar to Google Analytics and other analytics
+        software), Cxense DMP and Cxense Content.
+      </p>
+      <p class="company-title-description">
+        In the products above I have used a range of common web tech,
+        e.g React.js, Vue.js, Redux, Webpack.
+      </p>
+    </section>
+
+    <section id="cv">
+      <h1 class="print-hidden">CV</h1>
+      <h2 class="visible-print-only">Job experience</h2>
+      <p class="print-hidden">
+        Tip! If you need the CV as a nicly formated PDF, there is an
+        appropriate print style sheet in place.
+      </p>
+      <div class="cv-company">
+        <h2 class="company-name">
+          <img src="mouintain.png" />
+          Sabbatical
+        </h2>
+        <p class="time-summary print-hidden">
+          9 months
+        </p>
+        <p class="company-title-time">
+          Mar 2018 - Nov 2019
+        </p>
+      </div>
+
+      <div class="cv-company">
+        <h2 class="company-name">
+          <img src="schibsted.png" />
+          Schibsted Media Group
+        </h2>
+        <p class="time-summary print-hidden">
+          3 years
+        </p>
+        <p class="company-title-time print-hidden">
+          Nov 2016 - Nov 2019
+        </p>
+        <h4 class="company-title">
+          Staff software engineer
+          <span class="company-title-time">
+            • Sep 2018 - Nov 2019
+          </span>
+        </h4>
+
+        <p class="company-title-description">
+          Tech lead for the Pulse Tracking team.
+        </p>
+
+        <h4 class="company-title">
+          Frontend software developer
+          <span class="company-title-time">
+            • Nov 2016 - Sep 2018
+          </span>
+        </h4>
+
+        <p class="company-title-description">
+          Made new Pulse SDK and maintained the old one.
+        </p>
+        <p class="company-title-description">
+          Worked on Schibsted Messenger in Barcelona.
+        </p>
+      </div>
+
+      <div class="cv-company">
+        <h2 class="company-name">
+          <img src="cxense.png" />
+          Cxense
+        </h2>
+        <p class="time-summary print-hidden">
+          4 years
+        </p>
+        <h4 class="company-title">
+          Technical Team Lead
+          <span class="company-title-time">
+            • Jan 2016 - Oct 2016
+          </span>
+        </h4>
+        <p class="company-title-description">
+          Functioned as the technical team lead for the Applications
+          (front end) group, in addition to working as a senior
+          developer.
+        </p>
+        <h4 class="company-title">
+          Senior Software Engineer
+          <span class="company-title-time">
+            • Jun 2015 - Jan 2016
+          </span>
+        </h4>
+        <p class="company-title-description">
+
+          Front end developer working on all the apps developed at
+          the Oslo office, Cxense Insight, Cxense DMP, Cxense
+          Content and Cxense Search. The applications went
+          through an evolution of Apache Wicket, jQuery,
+          Backbone/Handlebars and today are today built with
+          React/Redux
+
+        </p>
+
+        <h4 class="company-title">
+          Software Engineer
+          <span class="company-title-time">
+            • Nov 2012 - Jun 2015
+          </span>
+        </h4>
+        <p class="company-title-description">
+          Front end development
+        </p>
+      </div>
+
+      <div class="cv-company">
+        <h2 class="company-name">
+          <img src="acando.png" />
+          Acando
+        </h2>
+        <p class="time-summary print-hidden">
+          1 year 3 months
+        </p>
+        <h4 class="company-title">
+          Sharepoint developer
+          <span class="company-title-time">
+            • Aug 2011 - Oct 2012
+          </span>
+        </h4>
+        <p class="company-title-description">
+          Working with clients to develop custom modifications on
+          top of the SharePoint platform.
+        </p>
+      </div>
+
+      <div class="cv-company">
+        <h2 class="company-name">
+          <img src="yahoo.png" />
+          Yahoo!
+        </h2>
+        <p class="time-summary print-hidden">
+          2 years
+        </p>
+        <h4 class="company-title">
+          Software Developer Intern
+          <span class="company-title-time">
+            • Jun 2009 - June 2011
+          </span>
+        </h4>
+        <p class="company-title-description">
+          Summer intern during the summer, part time during the
+          academic semester.
+
+          Focused on improving the in house continuous integration
+          system, test reporting and developing demo apps of Vespa,
+          the search engine developed at the Yahoo! Trondheim
+          office.
+
+          Keywords: Ruby, RoR, javascript.
+        </p>
+      </div>
+
+      <div class="cv-company">
+        <h2 class="company-name">
+          <img src="computas.png" />
+          Computas
+        </h2>
+        <p class="time-summary print-hidden">
+          3 months
+        </p>
+        <h4 class="company-title">
+          Intern Software Developer
+          <span class="company-title-time">
+            • Jun 2008 - Aug 2008
+          </span>
+        </h4>
+        <p class="company-title-description">
+          Set up continuous integration for Lovisa, the Norwegian
+          National Courts Administration case management system.
+
+          Keywords: java, hudson
+        </p>
+      </div>
+
+      <div class="cv-company">
+        <h2 class="company-name">
+          <img src="ntnu.png" />
+          NTNU IT
+        </h2>
+        <p class="time-summary print-hidden">
+          2 years 4 months
+        </p>
+        <h4 class="company-title">
+          Oracle
+          <span class="company-title-time">
+            • Feb 2007 - May 2009
+          </span>
+        </h4>
+
+        <p class="company-title-description">
+          Technical support for students and staff at the university.
+        </p>
       </div>
 
     </section>
-    <section id="cv">
-      <h1>CV</h1>
-      <p>
-        Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales tellus
-        ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec neque quam,
-        dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam sed arcu. Phasellus
-        at dui in ligula mollis ultricies. Integer placerat tristique nisl. Praesent augue. Fusce commodo.
-        Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae
-        lacus. Nullam libero mauris, consequat quis, varius et, dictum id, arcu. Mauris mollis tincidunt
-        felis. Aliquam feugiat tellus ut neque. Nulla facilisis, risus a rhoncus fermentum, tellus tellus
-        lacinia purus, et dictum nunc justo sit amet elit.
-      </p>
 
-      <p>
-        Aliquam erat volutpat. Nunc eleifend leo vitae magna. In id erat non orci commodo lobortis.
-        Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus. Sed diam. Praesent fermentum
-        tempor tellus. Nullam tempus. Mauris ac felis vel velit tristique imperdiet. Donec at pede.
-        Etiam vel neque nec dui dignissim bibendum. Vivamus id enim. Phasellus neque orci, porta a,
-        aliquet quis, semper a, massa. Phasellus purus. Pellentesque tristique imperdiet tortor. Nam
-        euismod tellus id erat.
-      </p>
-      <p>
-        Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales tellus
-        ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec neque quam,
-        dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam sed arcu.
-        Phasellus at dui in ligula mollis ultricies. Integer placerat tristique nisl. Praesent augue.
-        Fusce commodo. Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat
-        urna tortor vitae lacus. Nullam libero mauris, consequat quis, varius et, dictum id, arcu. Mauris
-        mollis tincidunt felis. Aliquam feugiat tellus ut neque. Nulla facilisis, risus a rhoncus
-        fermentum, tellus tellus lacinia purus, et dictum nunc justo sit amet elit.
+    <!-- <section id="personal" class="print-hidden">
+         <h2>Personal</h2>
+         <p>
+         Out side of work I enjoy the great outdoors as possible. I skii, trek, scuba dive and freedive.
+         </p>
+         </section> -->
 
-      </p>
-      <p>
-        Aliquam erat volutpat. Nunc eleifend leo vitae magna. In id erat non orci commodo lobortis. Proin
-        neque massa, cursus ut, gravida ut, lobortis eget, lacus. Sed diam. Praesent fermentum tempor
-        tellus. Nullam tempus. Mauris ac felis vel velit tristique imperdiet. Donec at pede. Etiam vel
-        neque nec dui dignissim bibendum. Vivamus id enim. Phasellus neque orci, porta a, aliquet quis,
-        semper a, massa. Phasellus purus. Pellentesque tristique imperdiet tortor. Nam euismod tellus id
-        erat.
-
-      </p>
-      <p>
-        Aliquam erat volutpat. Nunc eleifend leo vitae magna. In id erat non orci commodo lobortis. Proin
-        neque massa, cursus ut, gravida ut, lobortis eget, lacus. Sed diam. Praesent fermentum tempor
-        tellus. Nullam tempus. Mauris ac felis vel velit tristique imperdiet. Donec at pede. Etiam vel
-        neque nec dui dignissim bibendum. Vivamus id enim. Phasellus neque orci, porta a, aliquet quis,
-        semper a, massa. Phasellus purus. Pellentesque tristique imperdiet tortor. Nam euismod tellus id
-        erat.
-
-      </p>
-    </section>
-    <section id="personal">
-      <h1>Personal</h1>
-      <p>
-        Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales
-        tellus ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec
-        neque quam, dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam
-        sed arcu. Phasellus at dui in ligula mollis ultricies. Integer placerat tristique nisl.
-        Praesent augue. Fusce commodo. Vestibulum convallis, lorem a tempus semper, dui dui euismod
-        elit, vitae placerat urna tortor vitae lacus. Nullam libero mauris, consequat quis, varius
-        et, dictum id, arcu. Mauris mollis tincidunt felis. Aliquam feugiat tellus ut neque. Nulla
-        facilisis, risus a rhoncus fermentum, tellus tellus lacinia purus, et dictum nunc justo sit
-        amet elit.
-      </p>
-      <p>
-        Aliquam erat volutpat. Nunc eleifend leo vitae magna. In id erat non orci commodo lobortis. Proin
-        neque massa, cursus ut, gravida ut, lobortis eget, lacus. Sed diam. Praesent fermentum tempor
-        tellus. Nullam tempus. Mauris ac felis vel velit tristique imperdiet. Donec at pede. Etiam vel
-        neque nec dui dignissim bibendum. Vivamus id enim. Phasellus neque orci, porta a, aliquet quis,
-        semper a, massa. Phasellus purus. Pellentesque tristique imperdiet tortor. Nam euismod tellus id
-        erat.
-      </p>
-    </section>
-    <section id="page">
-      <h1>This page</h1>
+    <section id="page" class="print-hidden">
+      <h2>This page</h2>
       <p>
         I started this page by cloning
         <a href="https://github.com/murraco/jekyll-theme-minimal-resume"

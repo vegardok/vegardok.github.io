@@ -18,7 +18,7 @@
     'arrowleft',
     'arrowright',
     'a',
-    'b'
+    'b',
   ];
   let keyHistory = [];
 

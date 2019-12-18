@@ -8,7 +8,14 @@ header {
   color: white;
   min-height: 100vh;
   font-family: 'Montserrat', sans-serif;
-  /* display: flex; */
+}
+
+#print-header {
+  display: none;
+}
+
+.visible-print-only {
+  display: none;
 }
 
 .name-container {
@@ -91,13 +98,16 @@ section {
   width: 90%;
   margin: 0 auto;
   text-align: center;
-  font-family: 'Antic Slab', sans-serif;
-  font-weight: 400;
   font-size: 19px;
 }
 
-section h1 {
+
+h1 {
   font-size: 40px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media only screen and (min-width: 768px){
@@ -114,16 +124,51 @@ section h1 {
   justify-content: space-between;
 }
 
+.tech {
+  flex: 1 1 0;
+}
+
+
 @media only screen and (max-width: 375px){
   .grid-container {
     display: block;
   }
 }
 
-.tech {
-  flex: 1 1 0;
+
+.cv-company .time-summary {
+  font-size: 1.1em;
+  margin-bottom: 5px;
 }
 
+.cv-company h2 {
+  margin-bottom: 10px;
+}
+
+.cv-company h2 img {
+  height: 0.8em;
+}
+
+.cv-company p {
+  margin: 0px;
+
+}
+
+.company-title {
+  /* color: blue; */
+}
+
+.company-title-time {
+  color: #757474;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.company-title-description {
+  /* color: purple; */
+}
+
+/* Nothing to see here */
 @keyframes fade-out {
   0% {
     opacity: 1;
