@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "mkdir docs 2> /dev/null; cp src/*.html src/*.js src/*.svg src/*.png src/*.css docs; sass src/particle.scss docs/particle.css",
-    "build:watch": "watch 'npm run build' src",
+    "build": "sass style/particle.scss style/particle.css",
     "clean": "rm -rf docs",
-    "serve": "http-server docs"
+    "serve": "http-server ."
   },
   "author": "",
   "license": "ISC",
