@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "mkdir out 2> /dev/null; cp src/*.html src/*.js src/*.svg src/*.png src/*.jpg src/*.css out; sass src/particle.scss out/particle.css",
+    "build": "mkdir docs 2> /dev/null; cp src/*.html src/*.js src/*.svg src/*.png src/*.css docs; sass src/particle.scss docs/particle.css",
     "build:watch": "watch 'npm run build' src",
-    "serve": "http-server out"
+    "clean": "rm -rf docs",
+    "serve": "http-server docs"
   },
   "author": "",
   "license": "ISC",

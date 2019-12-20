@@ -1,0 +1,70 @@
+* {
+  font-size: initial;
+}
+
+.visible-print-only {
+  display: block;
+}
+
+
+.print-hidden {
+  display: none;
+}
+
+body {
+  margin-left: 10px;
+  padding-bottom: 20px;
+}
+section {
+  /* width: 100%; */
+  margin: initial;
+  text-align: left;
+  font-size: 19px;
+}
+
+h1 {
+  font-size: 32px;
+  text-align: center;
+}
+
+.personal {
+  text-align: center;
+}
+.personal p {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+section {
+  margin-left: 20px;
+}
+
+.cv-company p,
+.personal p {
+  margin-left: 20px;
+}
+
+.company-name {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+.cv-company .company-title-time,
+.cv-company .company-title {
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.cv-company .company-title-description {
+  font-size: 12px;
+  margin-left: 30px;
+  margin-bottom: 3px;
+}
