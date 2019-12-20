@@ -223,3 +223,17 @@ h1, h2, h3, h4, h5 {
 .snake-segment:last-child {
   background-color: red;
 }
+
+#page {
+  margin-top: 50px;
+  color: #979797;
+}
+
+.section-anchor,
+.section-anchor:visited {
+  color: #c0c0c0;
+  text-decoration: none;
+  font-size: 0.5em;
+  vertical-align: middle;
+  font-weight: normal;
+}

@@ -77,13 +77,14 @@
       <h1>Vegard Økland</h1>
     </section>
     <section id="about" class="print-hidden">
-      <h1>My Expertise</h1>
+      <h1>
+        <a href="#about" class="section-anchor">🔗</a>
+        My Expertise</h1>
       <p>
         I'm a Software Engineer, primarily working on browser based
-        technology. I have worked both on complex single page apps,
+        technologies. I have worked both on complex single page apps,
         third party components and behind the scenes tracking of user
-        behaviour. For details, see my full <a href="#cv">CV</a>
-        below.
+        behavior. For details, see my full <a href="#cv">CV</a> below.
       </p>
       <h3>Latest projects</h3>
       <div class="grid-container">
@@ -92,10 +93,10 @@
           <p>
             The Pulse tracker is one of the key components in
             Schibsteds data strategy. It is used to collect all events
-            from Schibsted web components and sites. It
-            allowes the different sites to describe and collect data
-            about user behaviour in a compatible way accross the
-            different site properties.
+            from Schibsted web components and sites. It allows the
+            different sites to describe and collect data about user
+            behavior in a compatible way across the different site
+            properties.
           </p>
           <p>
             Written in vanilla javascript as a collection of multiple
@@ -105,10 +106,10 @@
         <div class="tech">
           <h4>Pulse Monitor</h4>
           <p>
-            Pulse Monitor gives site developers and tracking
-            implementers and insight in exactly what data is being
+            Pulse Monitor give site developers and tracking
+            administrators and insight in exactly what data is being
             sent to Schibsted. A key part of the data strategy of
-            schibsted is to collect compatible data cross site. To do
+            Schibsted is to collect compatible data cross site. To do
             this a schema was developed and Pulse monitor will tell
             you to what degree the data you are sending is compatible
             with the schema.
@@ -125,7 +126,7 @@
           <p>
             Pulse Unicorn is a Chrome Developer Tools Extension that
             gives you similar information that Pulse monitor will give
-            you, but in realtime inside chrome dev tools.
+            you, but in real time inside Chrome dev tools.
           </p>
           <p>
             Written in React.js and Redux.
@@ -137,7 +138,7 @@
           <p>
             Schibsted Messenger is a core component used across all
             Classified sites of Schibsted. It is a fully featured
-            instant messaging sollution that can be dropped in to web
+            instant messaging solution that can be dropped in to web
             pages or iOS and Android apps.
           </p>
           <p>
@@ -145,40 +146,6 @@
           </p>
         </div>
         </div>
-
-        <!-- <div class="grid-container">
-             <div class="tech">
-             <h2>Code</h2>
-             <p>
-             My main language is JavaScript have have been so the last
-             8 yers. I have extensive experience with React/redux,
-             Vue/vuex in addition to vanilla JS development.
-             </p>
-             <p>
-             In addition I dabble in Java, Scala (API endpoints
-             typically) and Python (just for fun).
-             </p>
-             </div>
-
-             <div class="tech">
-             <h2>Tools</h2>
-
-             <p>
-             Git, NPM, Webpack, Linux, you name it, I have used a
-             bajillion tools!
-             </p>
-
-             </div>
-             <div class="tech">
-             <h2>Design</h2>
-
-             <p>
-             Although I do not claim to be a much of a designer, I do
-             work with design related tools on a regular basis.
-             </p>
-             </div>
-             </div> -->
-
     </section>
 
     <section id="personal" class="visible-print-only personal">
@@ -193,10 +160,10 @@
     <section id="skills" class="visible-print-only cv-company">
       <h2 >Core skills and experience</h2>
       <p class="company-title-description">
-        I'm a higly experienced Software Engineer, primarily working
-        on browser based technology. I have worked both on complex
+        I'm a highly experienced Software Engineer, primarily working
+        on browser based technologies. I have worked both on complex
         single page apps, third party components and behind the scenes
-        tracking of user behaviour.
+        tracking of user behavior.
       </p>
       <p class="company-title-description">
         In Schibsted I wrote the tracking script running on all
@@ -216,10 +183,15 @@
     </section>
 
     <section id="cv">
-      <h1 class="print-hidden">CV</h1>
-      <h2 class="visible-print-only">Job experience</h2>
+      <h1 class="print-hidden">
+        <a href="#cv" class="section-anchor">🔗</a>
+        CV
+      </h1>
+      <h2 class="visible-print-only">
+        Job experience
+      </h2>
       <p class="print-hidden">
-        Tip! If you need the CV as a nicly formated PDF, there is an
+        Tip! If you need the CV as a nicely formatted PDF, there is an
         appropriate print style sheet in place.
       </p>
       <div class="cv-company">
@@ -297,17 +269,6 @@
             • Jun 2015 - Jan 2016
           </span>
         </h4>
-        <p class="company-title-description">
-
-          Front end developer working on all the apps developed at
-          the Oslo office, Cxense Insight, Cxense DMP, Cxense
-          Content and Cxense Search. The applications went
-          through an evolution of Apache Wicket, jQuery,
-          Backbone/Handlebars and today are today built with
-          React/Redux
-
-        </p>
-
         <h4 class="company-title">
           Software Engineer
           <span class="company-title-time">
@@ -315,7 +276,12 @@
           </span>
         </h4>
         <p class="company-title-description">
-          Front end development
+          Front end developer working on all the apps developed at
+          the Oslo office, Cxense Insight, Cxense DMP, Cxense
+          Content and Cxense Search. The applications went
+          through an evolution of Apache Wicket, jQuery,
+          Backbone/Handlebars and today are today built with
+          React/Redux.
         </p>
       </div>
 
@@ -359,10 +325,7 @@
 
           Focused on improving the in house continuous integration
           system, test reporting and developing demo apps of Vespa,
-          the search engine developed at the Yahoo! Trondheim
-          office.
-
-          Keywords: Ruby, RoR, javascript.
+          the search engine developed at the Yahoo! Trondheim office.
         </p>
       </div>
 
@@ -383,8 +346,6 @@
         <p class="company-title-description">
           Set up continuous integration for Lovisa, the Norwegian
           National Courts Administration case management system.
-
-          Keywords: java, hudson
         </p>
       </div>
 
@@ -410,15 +371,50 @@
 
     </section>
 
-    <!-- <section id="personal" class="print-hidden">
-         <h2>Personal</h2>
-         <p>
-         Out side of work I enjoy the great outdoors as possible. I skii, trek, scuba dive and freedive.
-         </p>
-         </section> -->
+    <section id="edu">
+      <h1 class="print-hidden">
+        <a href="#edu" class="section-anchor">🔗</a>
+        Education
+      </h1>
+      <h2 class="visible-print-only">
+        Education
+        </h2>
+
+      <div class="cv-company">
+        <h2 class="company-name">
+          <img src="img/ntnu.png" />
+          Norwegian University of Science and Technology - NTNU
+        </h2>
+        <p class="time-summary print-hidden">
+          5 years
+        </p>
+        <h4 class="company-title">
+          Master of Science, Computer Science
+          <span class="company-title-time">
+            • Aug 2009 - May 2011
+          </span>
+        </h4>
+        <h4 class="company-title">
+          Bachelor of Science, Computer Science
+          <span class="company-title-time">
+            • Aug 2006 - May 2009
+          </span>
+        </h4>
+
+        <p class="company-title-description">
+          Master program done in the department for artificial intelligence.
+        </p>
+        <p class="company-title-description">
+          Master thesis:
+          <a href="https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/252703">
+            Utilizing linguistic analysis in multiple source search engines
+            ﻿</a>
+        </p>
+      </div>
+    </section>
 
     <section id="page" class="print-hidden">
-      <h2>This page</h2>
+      <h3>This page</h3>
       <p>
         I started this page by cloning
         <a href="https://github.com/murraco/jekyll-theme-minimal-resume"
