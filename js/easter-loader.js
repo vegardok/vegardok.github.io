@@ -1,7 +1,7 @@
 (function loader() {
   function load() {
     const scriptEl = document.createElement('script');
-    scriptEl.setAttribute('src', 'snake.js');
+    scriptEl.setAttribute('src', 'js/snake.js');
     scriptEl.setAttribute('type', 'application/javascript');
     document.getElementsByTagName('body').item(0).append(scriptEl);
 
