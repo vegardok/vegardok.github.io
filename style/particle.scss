@@ -28,7 +28,7 @@
       opacity: 1;
     }
     100% {
-      transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+      transform: translate3d((random(90) * 1vw), (random(90) * 1vh), 0);
     }
   }
 
@@ -38,6 +38,6 @@
     height: $size;
     width: $size;
     animation-delay: -$i * .2s;
-    transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+    transform: translate3d((random(90) * 1vw), (random(90) * 1vh), 0);
   }
 }
