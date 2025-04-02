@@ -1,6 +1,0 @@
-* About
-This is a simple static page with my resume. The project was started
-based on [[https://github.com/murraco/jekyll-theme-minimal-resume][murraco/jekyll-theme-minimal-resume]]x although very little
-code or project setup remains.
-
-The page is available at [[https://okland.org][okland.org]]
