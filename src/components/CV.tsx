@@ -48,7 +48,6 @@ const CVPage: React.FC = () => {
                     <div className="text-xs text-gray-600 dark:text-zinc-400 mt-2 space-x-3">
                         <span>{cvData.contact.location}</span>
                         <span aria-hidden="true">&middot;</span>
-                        <span aria-hidden="true">&middot;</span>
                         <a
                             href={`mailto:${cvData.contact.email}`}
                             className="text-gray-600 hover:text-black dark:text-zinc-400 dark:hover:text-zinc-50 hover:underline"
